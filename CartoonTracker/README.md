@@ -17,7 +17,9 @@ created_at: timestamptz
 name: text
 total_num_episodes: numeric
 num_episcodes_watched: numeric
-average_rating: numberic
+tv_rating: text // this is like TV-G, TV-MA, etc.
+average_rating: numberic // this is more of a star rating
 user_rating: text
 desc: text
 img: text
+genre: text[]

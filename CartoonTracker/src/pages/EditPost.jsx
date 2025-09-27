@@ -103,9 +103,9 @@ const EditPost = () => {
         
         if (error) {
             console.error("Insert error:", error.message);
-            alert("Failed to update crewmate.");
+            alert("Failed to update show.");
         } else {
-            console.log("Crewmate updated:", data);
+            console.log("Show updated:", data);
             window.location = "/";
         }
     }
@@ -120,9 +120,9 @@ const EditPost = () => {
         
         if (error) {
             console.error("Insert error:", error.message);
-            alert("Failed to delete crewmate.");
+            alert("Failed to delete show.");
         } else {
-            console.log("Crewmate deleted.");
+            console.log("Show deleted.");
             window.location = "/";
         }
     }
