@@ -2,17 +2,40 @@ import { useState, useEffect } from 'react'
 import Card from '../components/Card'
 import { supabase } from '../client'
 import { Link } from 'react-router-dom'
+import TVmazeUserService from '../services/tvmazeService';
+import './read-posts.css';
 
 const ReadPosts = () => {
 
     const [posts, setPosts] = useState([])
     // const [summary, setSummary] = useState({speedSum: 0, strengthSum: 0, hasTypes: [], minSpeed: 10000, minSpName: "", minStrength: 10000, minStName: "", crewmateCount: 0, magicCount: 0})
     const [result, setResult] = useState("The result is unknown.");
+    const [shows, setShows] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const fetchAllData = async () => {
+            try{
+                const service = new TVmazeUserService();
+                const[followedShows] = await Promise.all([
+                    service.getFollowedShows(),
+                    service.getMarkedEpisodes(),
+                    service.getVotedShows(),
+                ])
+                setShows(followedShows);
+                setEpisodes(markedEpisodes);
+            }
+            catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        
         const fetchPosts = async () => {
+            
             const {data} = await supabase
-                .from('crewmates')
+                .from('shows')
                 .select()
                 .order('created_at', {ascending: false})
                 console.log(data)

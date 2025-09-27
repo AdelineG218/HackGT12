@@ -12,7 +12,7 @@ const EditPost = () => {
     useEffect(() => {
         const fetchPost = async () => {
             const { data, error } = await supabase
-                .from('crewmates')
+                .from('shows')
                 .select()
                 .eq('id', id)
                 .single();
@@ -97,7 +97,7 @@ const EditPost = () => {
         event.preventDefault();
 
         const {data, error} = await supabase
-            .from('crewmates')
+            .from('shows')
             .update({name: post.name, type: post.type, speed: post.speed, strength: post.strength, magic: post.magic})
             .eq('id', id);
         
@@ -114,7 +114,7 @@ const EditPost = () => {
         event.preventDefault();
 
         const {error} = await supabase
-            .from('crewmates')
+            .from('shows')
             .delete()
             .eq('id', id);
         
