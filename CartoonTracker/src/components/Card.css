@@ -41,6 +41,12 @@
     font-size: 15px;
 }
 
+.watched {
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+
 .star-rating {
     color:white;
     text-align: center;

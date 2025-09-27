@@ -42,9 +42,10 @@ const Home = () => {
                                 img={show.image}
                                 genre={show.genre}
                                 review={show.review}
+                                linkTo={'show/' + show.id}
                             />
                         </Link>)
-                    ) : <h2>{'No Crewmates Yet 😞'}</h2>
+                    ) : <h2>{'No Shows Yet 😞'}</h2>
                 }
             </div>
         </>
