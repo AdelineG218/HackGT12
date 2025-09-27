@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Card from '../components/Card'
 import { supabase } from '../client'
 import { Link } from 'react-router-dom'
-import TVmazeService from '../services/TVmazeService'
+import TVmazeUserService from '../services/TVmazeService'
 import './ReadPosts.css';
 
 const ReadPosts = () => {
@@ -19,7 +19,7 @@ const ReadPosts = () => {
             try {
                 setLoading(true)
                 setApiError(null)
-                const service = new TVmazeService()
+                const service = new TVmazeUserService()
                 
                 console.log('Fetching TV data...')
                 const tvShows = await service.getPopularShows()
@@ -36,7 +36,7 @@ const ReadPosts = () => {
             } catch (error) {
                 console.error('Error fetching TV data:', error)
                 setApiError('Failed to load TV shows data. Using sample data.')
-                const service = new TVmazeService()
+                const service = new TVmazeUserService()
                 const sampleShows = service.getSampleShows()
                 setShows(sampleShows)
             } finally {
