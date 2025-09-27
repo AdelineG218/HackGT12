@@ -72,12 +72,14 @@ const ReadPosts = () => {
         
         return (
             <div key={showData.id || index} className="show-item">
-                {showData.image?.medium ? (
-                    <img src={showData.image.medium} alt={showData.name} className="show-image" />
-                ) : (
-                    <div className="no-image">No Image</div>
-                )}
-                <div className="show-info">
+                <div className="show-image-container">
+                    {showData.image?.medium ? (
+                        <img src={showData.image.medium} alt={showData.name} className="show-image" />
+                    ) : (
+                        <div className="no-image">No Image</div>
+                    )}
+                </div>
+                 <div className="show-info">
                     <h4 className="show-title">{showData.name || 'Unknown Show'}</h4>
                     {showData.rating?.average && (
                         <p className="show-rating">⭐ {showData.rating.average}/10</p>
