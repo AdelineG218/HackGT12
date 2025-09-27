@@ -1,4 +1,3 @@
-import axios from 'axios';
 
 class TVmazeUserService {
     constructor(username = null, apiKey = null) {

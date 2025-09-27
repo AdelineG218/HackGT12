@@ -1,6 +1,7 @@
 import './Card.css'
 import more from './more.png'
 import { Link } from 'react-router-dom'
+import ProgressBar from './ProgressBar.jsx'
 
 const Card = (props) =>  {
   return (
@@ -10,19 +11,8 @@ const Card = (props) =>  {
           <div className='card_subtitle'>
             <h4>{props.tv_rating}</h4>
             <h4>Rating: {props.average_rating}/10 Stars</h4>
-            <h4>Watched: {props.num_episodes_watched}/{props.total_num_episodes}</h4>
-
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-3">
-            <div
-              className="bg-blue-500 h-3 rounded-full"
-              style={{
-                width: `${
-                  (props.num_episodes_watched / props.total_num_episodes) * 100
-                }%`,
-              }}
-            ></div>
-          </div>
+          
           {props.description && <p className='description'>Description: {props.description}</p>}
           
           {props.user_rating != 0 ? <div>
@@ -32,6 +22,9 @@ const Card = (props) =>  {
               </span>
             ))}
           </div>: <p className="star-rating"> "☆☆☆☆☆☆☆☆☆☆"</p>}
+          <p className='watched'>Watched: {props.num_episodes_watched}/{props.total_num_episodes}</p>
+          <ProgressBar num_episodes_watched={props.num_episodes_watched}
+            total_num_episodes={props.total_num_episodes} />
       </div>
   );
 };

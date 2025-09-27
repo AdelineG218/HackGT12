@@ -35,9 +35,9 @@ const App = () => {
     <div className="App">
 
       <div className="header">
-        <h1>Shows</h1>
-        <Link to="/"><button className="headerBtn"> Explore Shows 🔍  </button></Link>
-        <Link to="/new"><button className="headerBtn"> Add New Shows 🏆 </button></Link>
+        <h1>Crewmates</h1>
+        <Link to="/"><button className="headerBtn"> Explore Crewmates 🔍  </button></Link>
+        <Link to="/new"><button className="headerBtn"> Add New Crewmates 🏆 </button></Link>
       </div>
         {element}
     </div>
