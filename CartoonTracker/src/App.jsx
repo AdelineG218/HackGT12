@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { useRoutes } from 'react-router-dom'
-import ReadPosts from './pages/ReadPosts'
+import Home from './pages/Home'
 import CreatePost from './pages/CreatePost'
 import EditPost from './pages/EditPost'
 import Post from './pages/Post'
@@ -13,10 +13,10 @@ const App = () => {
   let element = useRoutes([
     {
       path: "/",
-      element:<ReadPosts />
+      element:<Home />
     },
     {
-      path:"/edit/:id",
+      path:"/show/:id/edit",
       element: <EditPost />
     },
     {
@@ -24,7 +24,7 @@ const App = () => {
       element: <CreatePost />
     },
     {
-      path:"/crewmate/:id",
+      path:"/show/:id",
       element: <Post />
     }
   ]);
