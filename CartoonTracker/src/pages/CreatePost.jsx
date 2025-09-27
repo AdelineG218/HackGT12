@@ -19,11 +19,6 @@ const CreatePost = () => {
     const createPost = async (event) => {
         event.preventDefault();
 
-<<<<<<< HEAD
-        const {data, error} = await supabase
-            .from('crewmates')
-            .insert({name: post.name, type: post.type, speed: post.speed, strength: post.strength, magic: post.magic})
-=======
         if (show.num_episodes_watched > show.total_num_episodes) {
             alert("You can't have watched more episodes than the total number of episodes.")
         }
