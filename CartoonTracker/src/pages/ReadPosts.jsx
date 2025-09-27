@@ -94,9 +94,8 @@ const ReadPosts = () => {
                 </div>
             </div>
         )
-    } // ← This closing brace was missing
+    } 
 
-    // ADD THE RETURN STATEMENT HERE
     return (
         <div className="read-posts-container">
             {/* TV Shows Section */}
@@ -136,7 +135,6 @@ const ReadPosts = () => {
                 )}
             </div>
 
-            {/* Commented out section - make sure it's properly commented */}
             {/* <div className="posts-section">
                 <h2>Your Crewmate Posts</h2>
                 {posts && posts.length > 0 && <p className='description'>{result}</p>}

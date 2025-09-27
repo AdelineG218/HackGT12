@@ -17,27 +17,42 @@ class TVmazeUserService {
 
     async getPopularShows() {
         try {
-            console.log('Fetching popular shows from TVmaze API...');
+            console.log('🔗 Fetching from TVmaze API via proxy...');
             
-            // Use fetch directly since it's working (no CORS issues with TVmaze)
-            const response = await fetch('https://api.tvmaze.com/shows');
+            // Use the Vite proxy path
+            const response = await fetch('/api/shows');
+            
+            console.log('📡 Response status:', response.status);
+            console.log('📡 Response ok:', response.ok);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             
             const data = await response.json();
-            console.log(`Successfully retrieved ${data.length} shows directly from TVmaze API`);
+            console.log('✅ API success, received:', data.length, 'shows');
             
             const shows = data.slice(0, 20);
-            console.log(`Displaying ${shows.length} shows`);
             return shows;
             
         } catch (error) {
-            console.error('Error getting popular shows from API:', error.message);
+            console.error('❌ Proxy failed:', error.message);
             
-            // Fallback to sample data
-            console.log('Using sample data as fallback');
+            // Fallback to direct API call
+            console.log('🔄 Trying direct API call...');
+            try {
+                const directResponse = await fetch('https://api.tvmaze.com/shows');
+                if (directResponse.ok) {
+                    const directData = await directResponse.json();
+                    console.log('✅ Direct API success:', directData.length, 'shows');
+                    return directData.slice(0, 20);
+                }
+            } catch (directError) {
+                console.error('❌ Direct API also failed:', directError.message);
+            }
+            
+            // Final fallback
+            console.log('📋 Using sample data');
             return this.getSampleShows();
         }
     }
