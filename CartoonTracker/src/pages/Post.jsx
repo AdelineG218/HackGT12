@@ -13,7 +13,7 @@ const Post = () =>  {
     useEffect(() => {
         const fetchPost = async () => {
             const { data, error } = await supabase
-                .from('crewmates')
+                .from('shows')
                 .select()
                 .eq('id', id)
                 .single();

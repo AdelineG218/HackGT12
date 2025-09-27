@@ -59,7 +59,7 @@ const CreatePost = () => {
         event.preventDefault();
 
         const {data, error} = await supabase
-            .from('crewmates')
+            .from('shows')
             .insert({name: post.name, type: post.type, speed: post.speed, strength: post.strength, magic: post.magic})
             .select();
         
