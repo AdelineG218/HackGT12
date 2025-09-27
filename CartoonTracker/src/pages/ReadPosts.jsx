@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import Card from '../components/Card'
 import { supabase } from '../client'
-import { Link } from 'react-router-dom'
 import TVmazeUserService from '../services/TVmazeService'
 import './ReadPosts.css';
 
@@ -78,7 +76,7 @@ const ReadPosts = () => {
                     ) : (
                         <div className="no-image">No Image</div>
                     )}
-                </div>
+            </div>
                  <div className="show-info">
                     <h4 className="show-title">{showData.name || 'Unknown Show'}</h4>
                     {showData.rating?.average && (
