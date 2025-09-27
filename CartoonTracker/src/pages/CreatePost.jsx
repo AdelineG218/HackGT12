@@ -40,18 +40,14 @@ const CreatePost = () => {
                 img: show.image,
                 genre: show.genre.split(", "),
                 review: show.review})
->>>>>>> 9c26021b4d69ef158ee6992ba5ec3c5b8947106c
             .select();
         
         if (error) {
             console.error("Insert error:", error.message);
             alert("Failed to create show.");
         } else {
-<<<<<<< HEAD
             console.log("Crewmate created:", data);
-=======
             console.log("Show created:", data);
->>>>>>> 9c26021b4d69ef158ee6992ba5ec3c5b8947106c
             window.location = "/";
         }
     }

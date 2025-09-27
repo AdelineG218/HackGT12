@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react'
+<<<<<<< HEAD
 import { supabase } from '../client'
+=======
+import Card from '../components/Card'
+import { supabase } from '../client'
+import { Link } from 'react-router-dom'
+>>>>>>> 96352e69319b7ca3731f42c63962cff214d0ade2
 import TVmazeUserService from '../services/TVmazeService'
 import './ReadPosts.css';
 
 const ReadPosts = () => {
+<<<<<<< HEAD
     const [posts, setPosts] = useState([])
     const [result, setResult] = useState("The result is unknown.")
+=======
+>>>>>>> 96352e69319b7ca3731f42c63962cff214d0ade2
     const [shows, setShows] = useState([])
     const [loading, setLoading] = useState(true)
     const [apiError, setApiError] = useState(null)
@@ -49,7 +58,11 @@ const ReadPosts = () => {
                     .select()
                     .order('created_at', { ascending: false })
                 
+<<<<<<< HEAD
                 setPosts(data || [])
+=======
+                setShows(data | [])
+>>>>>>> 96352e69319b7ca3731f42c63962cff214d0ade2
                 
             } catch (error) {
                 console.error('Error fetching posts:', error)
@@ -76,7 +89,11 @@ const ReadPosts = () => {
                     ) : (
                         <div className="no-image">No Image</div>
                     )}
+<<<<<<< HEAD
             </div>
+=======
+                </div>
+>>>>>>> 96352e69319b7ca3731f42c63962cff214d0ade2
                  <div className="show-info">
                     <h4 className="show-title">{showData.name || 'Unknown Show'}</h4>
                     {showData.rating?.average && (
@@ -97,7 +114,10 @@ const ReadPosts = () => {
 
     return (
         <div className="read-posts-container">
+<<<<<<< HEAD
             {/* TV Shows Section */}
+=======
+>>>>>>> 96352e69319b7ca3731f42c63962cff214d0ade2
             <div className="tv-shows-section">
                 <h2>TV Shows from TVmaze</h2>
                 
@@ -133,6 +153,7 @@ const ReadPosts = () => {
                     </div>
                 )}
             </div>
+<<<<<<< HEAD
 
             {/* <div className="posts-section">
                 <h2>Your Crewmate Posts</h2>
@@ -156,6 +177,8 @@ const ReadPosts = () => {
                     )}
                 </div>
             </div> */}
+=======
+>>>>>>> 96352e69319b7ca3731f42c63962cff214d0ade2
         </div>
     )
 }
