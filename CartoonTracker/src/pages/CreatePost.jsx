@@ -60,6 +60,14 @@ const CreatePost = () => {
 
         if (show.num_episodes_watched > show.total_num_episodes) {
             alert("You can't have watched more episodes than the total number of episodes.")
+        const {data, error} = await supabase
+            .from('shows')
+            .insert({name: post.name, type: post.type, speed: post.speed, strength: post.strength, magic: post.magic})
+            .select();
+        
+        if (error) {
+            console.error("Insert error:", error.message);
+            alert("Failed to create crewmate.");
         } else {
             const {data, error} = await supabase
                 .from('shows')
@@ -124,4 +132,4 @@ const CreatePost = () => {
     )
 }
 
-export default CreatePost
+export default CreatePost;
