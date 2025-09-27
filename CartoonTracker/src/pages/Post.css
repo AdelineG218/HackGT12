@@ -1,0 +1,51 @@
+.Post {
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(153, 153, 153, 0.497);
+    border-radius: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.pname {
+    color:white;
+    padding-left: 0px;
+    font-size: 24px;
+}
+
+.pauthor {
+    color:white;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.pdescription {
+    color:white;  
+    text-align: justify;
+    text-justify: inter-word;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.pstats {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pdescription2 {
+    color:white;  
+    text-align: justify;
+    text-justify: inter-word;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+}
