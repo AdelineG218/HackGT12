@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import promptSnowflake from "../services/promptSnowflake"
 import { supabase } from '../client'
+import React from 'react'
 
 const sepByLine = (s) => {
     return s.replaceAll('\\u0026', '&').split('\\n')
@@ -45,7 +46,6 @@ const Recommendations = () => {
 
     return (
         <div>
-            <h2>Disney Movie Recommendations</h2>
             <h2>TV Show Recommendations</h2>
             {loading ? (
                 <p>Loading...</p>
