@@ -45,7 +45,7 @@ const App = () => {
     <div className="App">
 
       <div className="header">
-        <h1>Show Tracker</h1>
+        <h1>Trackopotamus</h1>
         <Link to="/"><button className="headerBtn"> Your Shows 📺  </button></Link>
         <Link to="/new"><button className="headerBtn"> Add New Shows 🏆 </button></Link>
         <Link to="/recommendations"><button className="headerBtn">Get Recommendations 🧠 </button></Link>
