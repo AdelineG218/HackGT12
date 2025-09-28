@@ -1,3 +1,4 @@
+import React from 'react'
 import './Card.css'
 import more from './more.png'
 import { Link } from 'react-router-dom'

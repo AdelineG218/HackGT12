@@ -1,32 +1,10 @@
-const ACCOUNT_IDENTIFIER = import.meta.env.VITE_ACCOUNT_IDENTIFIER
-const AUTH_TOKEN = import.meta.env.VITE_AUTH_TOKEN
-const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
-const USERNAME = import.meta.env.VITE_USERNAME
+import axios from "axios"
 
 const promptSnowflake = async(prompt) => {
-    const snowflake = require('snowflake-sdk')
-    const connection = snowflake.createConnection({
-        account: ACCOUNT_IDENTIFIER,
-        username: USERNAME,
-        password: AUTH_TOKEN
-    })
-
-    // Try to connect to Snowflake, and check whether the connection was successful.
-    connection.connect(
-        (err, conn) => {
-            if (err) {
-                console.error('Unable to connect: ' + err.message);
-                }
-            else {
-                console.log('Successfully connected to Snowflake.');
-                // Optional: store the connection ID.
-                    connection_ID = conn.getId();
-                }
-        }
-    );
-
-    const axios = require('axios');
-
+    const ACCOUNT_IDENTIFIER = "QZUSPNN-PENGDUCK"
+    const AUTH_TOKEN = "eyJraWQiOiI4NDM4NTkzOTQ2MSIsImFsZyI6IkVTMjU2In0.eyJwIjoiMzI5NjMyNTE2OjMyOTYzMjUyMCIsImlzcyI6IlNGOjEwNDkiLCJleHAiOjE3NjAzMjM4ODd9.B9JIPpZUpo4NpJavXupLEi0WbvKXWkzJiDO_5i5nj3hMBnfQtkCQKjviomUubYYBuWW9y6NLGNAhPYyvnI-H4A"
+    const API_ENDPOINT = "https://QZUSPNN-PENGDUCK.snowflakecomputing.com/api/v2/cortex/inference:complete"
+    const USERNAME = "PENGDUCK"
 
     const payload = {
         model: 'claude-3-5-sonnet',
@@ -49,7 +27,7 @@ const promptSnowflake = async(prompt) => {
         }
         }
         
-        return result.join().replaceAll('"',"").replaceAll('\\',"").replaceAll(',','')
+        return result.join().replaceAll(",","").replaceAll('"',"")
     }
 
     const callCortexAPI = async() => {
@@ -84,9 +62,4 @@ const promptSnowflake = async(prompt) => {
     return await callCortexAPI(prompt);
 }
 
-const main = async() => {
-    const text = await promptSnowflake("how many r's are in strawberry?")
-    console.log(text)
-}
-
-main()
+export default promptSnowflake
