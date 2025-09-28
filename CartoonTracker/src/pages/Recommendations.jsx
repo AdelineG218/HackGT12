@@ -33,6 +33,9 @@ const Recommendations = () => {
             try {
                 // Await the promise to get the actual text
                 let rawText = await promptSnowflake(prompt);
+        const fetchRecommendations = async () => {
+            try {
+                let rawText = await promptSnowflake("give me some disney movie recommendations. each movie should be on it's own line");
                 let movies = sepByLine(rawText);
                 // Update state with the actual data
                 setRecommendations(movies);
@@ -46,11 +49,12 @@ const Recommendations = () => {
         
         fetchRecommendations();
 
-    }, []); // Empty dependency array ensures it runs only once
+    }, []); 
 
     return (
         <div>
             <h2>TV Show Recommendations</h2>
+            <h2>Disney Movie Recommendations</h2>
             {loading ? (
                 <p>Loading...</p>
             ) : (
