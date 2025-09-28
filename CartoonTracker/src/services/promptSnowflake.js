@@ -1,10 +1,12 @@
-const ACCOUNT_IDENTIFIER = import.meta.env.VITE_ACCOUNT_IDENTIFIER
-const AUTH_TOKEN = import.meta.env.VITE_AUTH_TOKEN
-const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
-const USERNAME = import.meta.env.VITE_USERNAME
+import snowflake from "snowflake-sdk"
+import axios from "axios"
 
 const promptSnowflake = async(prompt) => {
-    const snowflake = require('snowflake-sdk')
+    const ACCOUNT_IDENTIFIER = "QZUSPNN-PENGDUCK"
+    const AUTH_TOKEN = "eyJraWQiOiI4NDM4NTkzOTQ2MSIsImFsZyI6IkVTMjU2In0.eyJwIjoiMzI5NjMyNTE2OjMyOTYzMjUxNiIsImlzcyI6IlNGOjEwNDkiLCJleHAiOjE3NjAyODkzMzh9.UyoVPxf1x4UKsQ3bMexO1sjv98hQv4MFv2-BMBtxwuZbu-tfoRXggiDVv5TCBTjVwueogz-0O82IZhLkPEJnkg"
+    const API_ENDPOINT = "https://QZUSPNN-PENGDUCK.snowflakecomputing.com/api/v2/cortex/inference:complete"
+    const USERNAME = "PENGDUCK"
+
     const connection = snowflake.createConnection({
         account: ACCOUNT_IDENTIFIER,
         username: USERNAME,
@@ -12,21 +14,20 @@ const promptSnowflake = async(prompt) => {
     })
 
     // Try to connect to Snowflake, and check whether the connection was successful.
-    connection.connect(
-        (err, conn) => {
-            if (err) {
-                console.error('Unable to connect: ' + err.message);
-                }
-            else {
-                console.log('Successfully connected to Snowflake.');
-                // Optional: store the connection ID.
-                    connection_ID = conn.getId();
-                }
-        }
-    );
-
-    const axios = require('axios');
-
+    if (!connection) {
+        connection.connect(
+            (err, conn) => {
+                if (err) {
+                    console.error('Unable to connect: ' + err.message);
+                    }
+                else {
+                    console.log('Successfully connected to Snowflake.');
+                    // Optional: store the connection ID.
+                        connection_ID = conn.getId();
+                    }
+            }
+        );
+    }
 
     const payload = {
         model: 'claude-3-5-sonnet',
@@ -85,8 +86,10 @@ const promptSnowflake = async(prompt) => {
 }
 
 const main = async() => {
-    const text = await promptSnowflake("how many r's are in strawberry?")
+    let text = await promptSnowflake("hello!")
     console.log(text)
 }
 
 main()
+
+export default promptSnowflake
