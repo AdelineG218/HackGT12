@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import TVmazeUserService from '../services/TVmazeService'
 import './ReadPosts.css';
+import React from 'react'
 
 const ReadPosts = () => {
     const [shows, setShows] = useState([])
