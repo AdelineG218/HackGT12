@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import TVmazeUserService from '../services/TVmazeService'
 import './ReadPosts.css';
+import Card2 from '../components/Card2';
 import React from 'react'
 import Card2 from '../components/Card2';
 
