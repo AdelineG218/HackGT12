@@ -1,7 +1,8 @@
+import React from 'react'
 import './Card.css'
 import more from './more.png'
 import { Link } from 'react-router-dom'
-import ProgressBar from './ProgressBar.jsx'
+import { LinearProgressBar } from '../components/ProgressBar.jsx';
 
 const Card = (props) =>  {
   console.log(props)
@@ -11,6 +12,7 @@ const Card = (props) =>  {
           <h2 className="name">{props.name}</h2>
           <p className='watched'>Genre: {props.genre.join(", ")}</p>
           <div className={props.tv_rating ? 'card_subtitle' : 'watched'}>
+=          <div className='card_subtitle'>
             <h4>{props.tv_rating}</h4>
             <h4>Rating: {props.average_rating}/10 Stars</h4>
           </div>
@@ -26,6 +28,8 @@ const Card = (props) =>  {
           </div>: <p className="star-rating"> ☆☆☆☆☆☆☆☆☆☆</p>}
           {props.num_episodes_watched != 0 && props.total_num_episodes != 1 && <p className='watched'>Watched: {props.num_episodes_watched}/{props.total_num_episodes}</p>}
           <ProgressBar num_episodes_watched={props.num_episodes_watched}
+          <p className='watched'>Watched: {props.num_episodes_watched}/{props.total_num_episodes}</p>
+          <LinearProgressBar num_episodes_watched={props.num_episodes_watched}
             total_num_episodes={props.total_num_episodes} />
       </div>
   );
