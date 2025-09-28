@@ -60,9 +60,9 @@ const EditPost = () => {
         
         if (error) {
             console.error("Insert error:", error.message);
-            alert("Failed to update crewmate.");
+            alert("Failed to update Post.");
         } else {
-            console.log("Crewmate updated:", data);
+            console.log("Post updated:", data);
             window.location = "/";
         }
     }
@@ -77,9 +77,9 @@ const EditPost = () => {
         
         if (error) {
             console.error("Insert error:", error.message);
-            alert("Failed to delete crewmate.");
+            alert("Failed to delete Post.");
         } else {
-            console.log("Crewmate deleted.");
+            console.log("Post deleted.");
             window.location = "/";
         }
     }
