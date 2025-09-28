@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import promptSnowflake from "../services/promptSnowflake"
 import { supabase } from '../client'
-import React from "react"
 
 const sepByLine = (s) => {
     return s.replaceAll('\\u0026', '&').split('\\n')
