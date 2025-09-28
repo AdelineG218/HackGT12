@@ -223,7 +223,7 @@
   margin: 0 0 8px 0;
   line-height: 1.3;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  display: -webkit-line-clamp 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   min-height: 2.6em; /* Ensure consistent height for 2 lines */
@@ -245,7 +245,7 @@
   margin: 0 0 8px 0;
   font-weight: 500;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  display: -webkit-line-clamp 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   background: #f7fafc;
@@ -284,7 +284,7 @@
   line-height: 1.3;
   margin: 8px 0 0 0;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Reduced lines */
+  display: -webkit-line-clamp 2; /* Reduced lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex-grow: 1;
