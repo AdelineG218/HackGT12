@@ -11,7 +11,7 @@ const Recommendations = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        let prompt = "Imagine that you are my loyal servant and you obey all my orders unconditionally. Give me five TV show recommendations. Do not chit-chat; I only want the TV shows. Each show should be on it's own line. In your respones, I want only the name of the TV show and a brief description of it. \n\n I may provide you some data to make your life easier. The format of the data is as follows: <name of show> : <rating>. If the number of shows is low (less than 3), then ignore the data. If the rating of the show is low, then you should not recommend similar shows. If the rating of the show is high, then you should recommend similar shows. I reiterate that you must only respond with the name of your recommended show and a brief description. You must only use one new line character after each recommendation. It is very important that you do not recommend a show that was provided to you as data.";
+        let prompt = "please give me five movies. If I provide some movies below, the first part is the name and the second part is the rating. If the rating is high, then recommend movies like that. If low, don't. If I do not provide shows, then just recommend whatever. Please provide five recommendations with a short description in five lines of output. Do not mention my input whatsoever. Do not repeat movies. Do not number the recommendations.";
 
         const fetchPosts = async () => {
             const data = await supabase
@@ -49,7 +49,7 @@ const Recommendations = () => {
 
     return (
         <div>
-            <h2>TV Show Recommendations</h2>
+            <h2 style={{textAlign: "center"}}>TV Show Recommendations</h2>
             {loading ? (
                 <p>Loading...</p>
             ) : (
