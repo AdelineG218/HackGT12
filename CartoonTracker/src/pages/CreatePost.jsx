@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './CreatePost.css'
 import { supabase } from '../client'
+import React from 'react'
 
 const CreatePost = () => {
 
