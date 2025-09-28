@@ -1,10 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import './CreatePost.css'
 import { supabase } from '../client'
 
 const CreatePost = () => {
 
     const [show, setShow] = useState({name: "", total_num_episodes: 0, num_episodes_watched: 0, tv_rating: "", average_rating: 0, user_rating: 0, description: "", image: "", genre: [], review: ""})
+    const location = useLocation();
+    const props = location.state || {};
+
+    useEffect(() => {
+        if (props) {
+            setShow({name: props.name,
+                genre: props.genre,
+                average_rating: props.average_rating,
+                description: props.desc,
+                image: props.image,
+                user_rating: 0})
+        }
+    }, [])
 
     const handleChange = (event) => {
         const {name, value} = event.target
@@ -72,9 +86,6 @@ const CreatePost = () => {
 
                 <label htmlFor="user_rating">Your Rating</label><br />
                 <input type="number" step="0.1" id="user_rating" name="user_rating" value={show.user_rating} onChange={handleChange} /><br /><br />
-
-                <label htmlFor="review">Review</label><br />
-                <textarea id="review" name="review" value={show.review} onChange={handleChange} /><br /><br />
 
                 <label htmlFor="image">Image URL</label><br />
                 <input type="text" id="image" name="image" value={show.image} onChange={handleChange} /><br /><br />

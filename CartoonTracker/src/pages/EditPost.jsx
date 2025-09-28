@@ -54,8 +54,7 @@ const EditPost = () => {
                 user_rating: show.user_rating,
                 desc: show.description,
                 img: show.image,
-                genre: genreArray,
-                review: show.review})
+                genre: genreArray})
             .eq('id', id);
         
         if (error) {
@@ -110,9 +109,6 @@ const EditPost = () => {
 
                 <label htmlFor="user_rating">Your Rating</label><br />
                 <input type="number" step="0.1" id="user_rating" name="user_rating" value={show.user_rating} onChange={handleChange} /><br /><br />
-
-                <label htmlFor="review">Review</label><br />
-                <textarea id="review" name="review" value={show.review} onChange={handleChange} /><br /><br />
 
                 <label htmlFor="image">Image URL</label><br />
                 <input type="text" id="image" name="image" value={show.image} onChange={handleChange} /><br /><br />

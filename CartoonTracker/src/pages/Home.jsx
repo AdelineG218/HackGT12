@@ -38,11 +38,10 @@ const Home = () => {
                                 tv_rating={show.tv_rating}
                                 average_rating={show.average_rating}
                                 user_rating={show.user_rating}
-                                desc={show.description}
+                                desc={show.desc}
                                 img={show.image}
                                 genre={show.genre}
                                 review={show.review}
-                                linkTo={'show/' + show.id}
                             />
                         </Link>)
                     ) : <h2>{'No Shows Yet 😞'}</h2>

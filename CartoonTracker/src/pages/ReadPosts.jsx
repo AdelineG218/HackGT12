@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import TVmazeUserService from '../services/TVmazeService'
 import './ReadPosts.css';
+import Card2 from '../components/Card2';
 
 const ReadPosts = () => {
+    // const finalApiKey = import.meta.env.finalApiKey;
     const [shows, setShows] = useState([])
     const [loading, setLoading] = useState(true)
     const [apiError, setApiError] = useState(null)
@@ -27,7 +29,6 @@ const ReadPosts = () => {
                 if (safeShows.length === 0) {
                     setApiError('No TV shows data available. Please check your connection.')
                 }
-                
             } catch (error) {
                 console.error('Error fetching TV data:', error)
                 setApiError('Failed to load TV shows data. Using sample data.')
@@ -40,46 +41,46 @@ const ReadPosts = () => {
         }
 
         fetchTVData()
-    }, [])
+        console.log(shows)
+    }, []);
 
-    const renderShowItem = (show, index) => {
-        if (!show || typeof show !== 'object') {
-            return null
-        }
+    // const renderShowItem = (show, index) => {
+    //     if (!show || typeof show !== 'object') {
+    //         return null
+    //     }
 
-        const showData = show
+    //     const showData = show
         
-        return (
-            <div key={showData.id || index} className="show-item">
-                <div className="show-image-container">
-                    {showData.image?.medium ? (
-                        <img src={showData.image.medium} alt={showData.name} className="show-image" />
-                    ) : (
-                        <div className="no-image">No Image</div>
-                    )}
-                </div>
-                 <div className="show-info">
-                    <h4 className="show-title">{showData.name || 'Unknown Show'}</h4>
-                    {showData.rating?.average && (
-                        <p className="show-rating">⭐ {showData.rating.average}/10</p>
-                    )}
-                    {showData.genres && Array.isArray(showData.genres) && showData.genres.length > 0 && (
-                        <p className="show-genres">{showData.genres.join(', ')}</p>
-                    )}
-                    {showData.status && (
-                        <p className={`show-status status-${showData.status.toLowerCase()}`}>
-                            {showData.status}
-                        </p>
-                    )}
-                </div>
-            </div>
-        )
-    }
+    //     return (
+    //         <div key={showData.id || index} className="show-item">
+    //             <div className="show-image-container">
+    //                 {showData.image?.medium ? (
+    //                     <img src={showData.image.medium} alt={showData.name} className="show-image" />
+    //                 ) : (
+    //                     <div className="no-image">No Image</div>
+    //                 )}
+    //             </div>
+    //              <div className="show-info">
+    //                 <h4 className="show-title">{showData.name || 'Unknown Show'}</h4>
+    //                 {showData.rating?.average && (
+    //                     <p className="show-rating">⭐ {showData.rating.average}/10</p>
+    //                 )}
+    //                 {showData.genres && Array.isArray(showData.genres) && showData.genres.length > 0 && (
+    //                     <p className="show-genres">{showData.genres.join(', ')}</p>
+    //                 )}
+    //                 {showData.status && (
+    //                     <p className={`show-status status-${showData.status.toLowerCase()}`}>
+    //                         {showData.status}
+    //                     </p>
+    //                 )}
+    //             </div>
+    //         </div>
+    //     )
+    // }
 
     return (
         <div className="read-posts-container">
             <div className="tv-shows-section">
-                <h2>TV Shows from TVmaze</h2>
                 
                 {apiError && (
                     <div className="api-warning">
@@ -91,21 +92,25 @@ const ReadPosts = () => {
                     <div className="loading">Loading TV shows...</div>
                 ) : (
                     <div className="tv-content">
-                        <div className="tv-stats">
-                            <div className="stat-card">
-                                <h3>📺 Available Shows</h3>
-                                <p className="stat-number">{shows.length}</p>
-                            </div>
-                        </div>
-
                         <div className="shows-grid">
                             <h3>Popular TV Shows</h3>
                             {shows.length === 0 ? (
                                 <p className="no-shows">No shows available. Please check your internet connection.</p>
                             ) : (
-                                <div className="shows-list">
-                                    {shows.slice(0, 20).map((show, index) => 
-                                        renderShowItem(show, index)
+                                <div className="ReadPosts">
+                                    {shows.slice(0, 20).map((show) => 
+                                        // renderShowItem(show, index)
+                                        // <Link to={'show/' + show.id} key={show.id} style={{textDecoration: 'none'}}>
+                                            <Card2
+                                                key={show.id}
+                                                id={show.id}
+                                                name={show.name}
+                                                average_rating={show.rating.average}
+                                                desc={show.summary}
+                                                image={show.image.medium}
+                                                genre={show.genres.join(", ")}
+                                            />
+                                        //</Link>
                                     )}
                                 </div>
                             )}

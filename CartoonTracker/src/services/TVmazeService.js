@@ -17,21 +17,21 @@ class TVmazeUserService {
 
     async getPopularShows() {
         try {
-            console.log('Fetching popular shows from TVmaze API...');
-            
-            // Use fetch directly since it's working (no CORS issues with TVmaze)
-            const response = await fetch('https://api.tvmaze.com/shows');
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            const totalPages = 10;
+            const allShows = [];
+            for (let i = 0; i < totalPages; i++) {
+                const response = await fetch(`https://api.tvmaze.com/shows?page=${i}`);
+                const data = await response.json();
+                console.log(data);
+                allShows.push(...data);
             }
-            
-            const data = await response.json();
-            console.log(`Successfully retrieved ${data.length} shows directly from TVmaze API`);
-            
-            const shows = data.slice(0, 20);
+        
+            console.log(allShows);
+            const shows = allShows.sort((a,b) => {
+                return (b.rating?.average || 0) - (a.rating?.average || 0);
+            });
             console.log(`Displaying ${shows.length} shows`);
-            return shows;
+            return shows.slice(0, 20);
             
         } catch (error) {
             console.error('Error getting popular shows from API:', error.message);
