@@ -50,7 +50,7 @@
 .imgformat {
     width: 150px; 
     height: 100%;
-    border-radius: 8px; /* Rounded corners for the image */
+    border-radius: 8px; 
     object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 

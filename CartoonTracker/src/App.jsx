@@ -48,7 +48,7 @@ const App = () => {
         <h1>Show Tracker</h1>
         <Link to="/"><button className="headerBtn"> Your Shows 📺  </button></Link>
         <Link to="/new"><button className="headerBtn"> Add New Shows 🏆 </button></Link>
-        <Link to="/recommendations"><button className="headerBtn">Get Recommendations</button></Link>
+        <Link to="/recommendations"><button className="headerBtn">Get Recommendations 🧠 </button></Link>
         <Link to="/explore"><button className="headerBtn"> Explore Shows 🔍 </button></Link>
       </div>
         {element}
