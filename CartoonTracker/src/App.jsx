@@ -6,6 +6,7 @@ import ReadPosts from './pages/ReadPosts'
 import CreatePost from './pages/CreatePost'
 import EditPost from './pages/EditPost'
 import Post from './pages/Post'
+import Recommendations from './pages/Recommendations'
 import { Link } from 'react-router-dom'
 
 
@@ -29,6 +30,10 @@ const App = () => {
       element: <Post />
     },
     {
+      path:"/recommendations",
+      element: <Recommendations />
+    },
+    {
       path: "/explore",
       element: <ReadPosts />
     },
@@ -43,6 +48,7 @@ const App = () => {
         <h1>Show Tracker</h1>
         <Link to="/"><button className="headerBtn"> Your Shows 📺  </button></Link>
         <Link to="/new"><button className="headerBtn"> Add New Shows 🏆 </button></Link>
+        <Link to="/recommendations"><button className="headerBtn">Get Recommendations</button></Link>
         <Link to="/explore"><button className="headerBtn"> Explore Shows 🔍 </button></Link>
       </div>
         {element}
