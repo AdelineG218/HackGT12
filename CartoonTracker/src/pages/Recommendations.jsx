@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import promptSnowflake from "../services/promptSnowflake"
 import { supabase } from '../client'
-
 const sepByLine = (s) => {
     return s.replaceAll('\\u0026', '&').split('\\n')
 }
@@ -31,6 +30,9 @@ const Recommendations = () => {
         const fetchRecommendations = async () => {
             try {
                 let rawText = await promptSnowflake(prompt);
+        const fetchRecommendations = async () => {
+            try {
+                let rawText = await promptSnowflake("give me some disney movie recommendations. each movie should be on it's own line");
                 let movies = sepByLine(rawText);
                 setRecommendations(movies);
             } catch (error) {
@@ -43,12 +45,13 @@ const Recommendations = () => {
         
         fetchRecommendations();
 
-    }, []); // Empty dependency array ensures it runs only once
+    }, []); 
 
     return (
         <div>
             <h2>Disney Movie Recommendations</h2>
             <h2>TV Show Recommendations</h2>
+            <h2>Disney Movie Recommendations</h2>
             {loading ? (
                 <p>Loading...</p>
             ) : (
