@@ -96,7 +96,7 @@ const EditPost = () => {
                 <input type="text" id="genre" name="genre" value={show.genre} onChange={handleChange} /><br /><br />
 
                 <label htmlFor="description">Description</label><br />
-                <textarea id="description" name="description" value={show.description} onChange={handleChange} /><br /><br />
+                <textarea id="description" name="description" value={show.desc} onChange={handleChange} /><br /><br />
                 
                 <label htmlFor="average_rating">Average Rating</label><br />
                 <input type="number" step="0.1" id="average_rating" name="average_rating" value={show.average_rating} onChange={handleChange} /><br /><br />
@@ -111,7 +111,7 @@ const EditPost = () => {
                 <input type="number" step="0.1" id="user_rating" name="user_rating" value={show.user_rating} onChange={handleChange} /><br /><br />
 
                 <label htmlFor="image">Image URL</label><br />
-                <input type="text" id="image" name="image" value={show.image} onChange={handleChange} /><br /><br />
+                <input type="text" id="image" name="image" value={show.img} onChange={handleChange} /><br /><br />
 
                 <input type="submit" value="Submit" onClick={updatePost} /><br /><br />
                 <button onClick={deletePost}>Delete</button>
