@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './Post.css'
 import { supabase } from '../client'
-
+import { CircularProgressBar } from '../components/ProgressBar.jsx';
 
 const Post = () =>  {
     const {id} = useParams()
@@ -31,11 +31,21 @@ const Post = () =>  {
 
     return (
         <div className="Post">
-            <h1 className="pname">{show.name}</h1>
+            <div>
+                <img className='imgformat' src={show.img} alt={show.name} />
+            </div>
+
             <div className='pstats'>
-                <p className="pdescription">{show.tv_rating}</p>
-                <p className="pdescription">Rating: {show.average_rating}/10 Stars</p>
-                <p className='pdescription'>Description: {show.desc}</p>
+                <h1 className="pname show-details">{show.name}</h1>
+                <p className="pdescription show-details detail-item">{show.tv_rating}</p>
+                <p className="pdescription show-details detail-item">Rating: {show.average_rating}/10 Stars</p>
+                <p className='pdescription show-details detail-item'>Description: {show.desc}</p>
+                <p className='pdescription show-details detail-item'>Genres: {show.genre.join(", ")}</p>
+            </div>
+            
+            <div>
+                <CircularProgressBar num_episodes_watched={show.num_episodes_watched}
+                total_num_episodes={show.total_num_episodes} />
             </div>
         </div>
     );
