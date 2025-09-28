@@ -35,6 +35,7 @@ const Post = () =>  {
             <div className='pstats'>
                 <p className="pdescription">{show.tv_rating}</p>
                 <p className="pdescription">Rating: {show.average_rating}/10 Stars</p>
+                <p className='pdescription'>Description: {show.desc}</p>
             </div>
         </div>
     );
