@@ -60,29 +60,27 @@ const Post = () =>  {
 
     return (
         <div className="Post">
-            <div>
+            <div className='post-top'>
                 <img className='imgformat' src={show.img} alt={show.name} />
+                <div className='pstats'>
+                    <h1 className="pname show-details">{show.name}</h1>
+                    <p className="pdescription show-details detail-item">Rating: {show.average_rating}/10 Stars</p>
+                    <p className='pdescription show-details detail-item'>Genres: {show.genre.join(", ")}</p>
+                </div>
+                <div>
+                    <CircularProgressBar num_episodes_watched={show.num_episodes_watched}
+                    total_num_episodes={show.total_num_episodes} />
+                </div>
             </div>
 
-            <div className='pstats'>
-                <h1 className="pname show-details">{show.name}</h1>
-                <p className="pdescription show-details detail-item">{show.tv_rating}</p>
-                <p className="pdescription show-details detail-item">Rating: {show.average_rating}/10 Stars</p>
-                <p className='pdescription show-details detail-item'>Description: {show.desc}</p>
-                <p className='pdescription show-details detail-item'>Genres: {show.genre.join(", ")}</p>
-            </div>
-            
-            <div>
-                <CircularProgressBar num_episodes_watched={show.num_episodes_watched}
-                total_num_episodes={show.total_num_episodes} />
-            </div>
+            <p className='pdescription show-details detail-item'>Description: {show.desc}</p>
 
             {show.review && show.review.length > 0 && (
                 <div className='review-box'>
-                    <p>Reviews</p>
+                    <p className='pname'>Reviews</p>
                     <ul className="review-list">
                         {show.review.map((s, idx) => (
-                            <li className="review-item" key={idx}>{s}</li>
+                            <li className="review-item detail-item" key={idx}>{s}</li>
                         ))}
                     </ul>
                 </div>)}
