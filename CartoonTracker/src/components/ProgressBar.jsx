@@ -1,4 +1,5 @@
-import './ProgressBar.css';
+import React from 'react'
+import './ProgressBar.css'
 
 // Old linear progress bar component, renamed to LinearProgressBar
 export const LinearProgressBar = (props) => {

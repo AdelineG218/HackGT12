@@ -6,7 +6,6 @@ class TVmazeUserService {
         
         console.log('TVmaze Service initialized');
 
-        // TVmaze API doesn't require authentication for public endpoints
         const finalUsername = username || import.meta.env?.VITE_TVMAZE_USERNAME || '';
         const finalApiKey = apiKey || import.meta.env?.VITE_TVMAZE_API_KEY || '';
         

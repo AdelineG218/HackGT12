@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './CreatePost.css'
 import { supabase } from '../client'
+import React from 'react'
 
 const CreatePost = () => {
 
@@ -41,6 +42,7 @@ const CreatePost = () => {
             console.error("Insert error:", error.message);
             alert("Failed to create show.");
         } else {
+            console.log("Crewmate created:", data);
             console.log("Show created:", data);
             window.location = "/";
         }
@@ -85,4 +87,4 @@ const CreatePost = () => {
     )
 }
 
-export default CreatePost;
+export default CreatePost
