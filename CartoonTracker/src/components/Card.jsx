@@ -12,7 +12,7 @@ const Card = (props) =>  {
           <h2 className="name">{props.name}</h2>
           <p className='watched'>Genre: {props.genre.join(", ")}</p>
           <div className={props.tv_rating ? 'card_subtitle' : 'watched'}>
-=          <div className='card_subtitle'>
+            <div className='card_subtitle'>
             <h4>{props.tv_rating}</h4>
             <h4>Rating: {props.average_rating}/10 Stars</h4>
           </div>

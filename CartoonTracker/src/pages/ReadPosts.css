@@ -55,7 +55,6 @@
   box-shadow: 0 2px 8px rgba(237, 137, 54, 0.3);
 }
 
-// API Warning
 .api-warning {
   background: #fff3cd;
   border: 1px solid #ffeaa7;
@@ -393,7 +392,6 @@
   }
 }
 
-// Smooth animations
 .show-item {
   animation: fadeInUp 0.5s ease-out;
 }
@@ -409,7 +407,6 @@
   }
 }
 
-// Stagger animation for flexbox items
 .shows-list .show-item:nth-child(4n+1) {
   animation-delay: 0.1s;
 }
@@ -426,7 +423,6 @@
   animation-delay: 0.4s;
 }
 
-// Scrollbar styling
 .shows-list {
   overflow-x: auto;
   padding-bottom: 8px;

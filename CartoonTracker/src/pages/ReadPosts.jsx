@@ -3,6 +3,7 @@ import TVmazeUserService from '../services/TVmazeService'
 import './ReadPosts.css';
 import Card2 from '../components/Card2';
 import React from 'react'
+import Card2 from '../components/Card2';
 
 const ReadPosts = () => {
     // const finalApiKey = import.meta.env.finalApiKey;
