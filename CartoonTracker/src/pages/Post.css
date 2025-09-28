@@ -291,8 +291,49 @@
   min-height: 2.6em; /* Consistent height for 2 lines */
 }
 
-.show-summary p {
-  margin: 0;
+.Post {
+    /* Container for the entire card, with a subtle border and shadow */
+    display: flex; /* Establishes a flex container */
+    flex-direction: row; /* Arranges the children (image and details) horizontally */
+    gap: 20px; /* Adds space between the image and the text */
+    background-color: #333333; /* Dark background color */
+    color: #ffffff; /* White text color */
+    padding: 24px; /* Inner spacing */
+    border-radius: 12px; /* Rounded corners for the card */
+    border: 1px solid #555555;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 600px; /* Example width, adjust as needed */
+    margin: 20px auto; /* Centers the card on the page */
+}
+
+.imgformat {
+    width: 150px; /* Fixed width for the image */
+    height: auto;
+    border-radius: 8px; /* Rounded corners for the image */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.pdescription {
+    display: flex;
+    flex-direction: column; /* Stacks the text elements vertically */
+    justify-content: center; /* Vertically centers the text block */
+}
+
+.pname {
+    font-size: 1.5rem; /* Larger font for the title */
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.show-details {
+    display: flex;
+    flex-direction: column; /* Stacks the text elements vertically */
+    justify-content: center; /* Vertically centers the text block */
+}
+
+.detail-item {
+    font-size: 1rem;
+    margin-bottom: 4px;
 }
 
 .show-id {

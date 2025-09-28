@@ -18,3 +18,41 @@
     border-radius: 10px;
     background-color: #2ecc71;
 }
+
+
+/* CircularProgressBar.css */
+.circular-progress-bar-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.circular-progress {
+    transform: rotate(-90deg);
+}
+
+.progress-bar-background,
+.progress-bar-fill {
+    fill: transparent;
+    stroke-width: 15;
+}
+
+.progress-bar-background {
+    stroke: #ccc;
+}
+
+.progress-bar-fill {
+    stroke: #2ecc71;
+    transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+.progress-text {
+    position: absolute;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffffff;
+}
