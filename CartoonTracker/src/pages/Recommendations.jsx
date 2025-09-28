@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import promptSnowflake from "../services/promptSnowflake"
 import { supabase } from '../client'
+import Card3 from '../components/Card3'
 
 const sepByLine = (s) => {
     return s.replaceAll('\\u0026', '&').split('\\n')
@@ -54,9 +55,18 @@ const Recommendations = () => {
                 <p>Loading...</p>
             ) : (
                 <ul>
-                    {recommendations.map((movie, index) => (
-                        <li key={index}>{movie}
-                        </li>
+                    {recommendations.map((show, index) => (
+                        <Card3
+                            key={index}
+                            id={index}
+                            name={show.split("-")[0]}
+                            // average_rating={show.rating.average}
+                            desc={show.split("-")[1]}
+                            // image={show.image.medium}
+                            // genre={show.genres.join(", ")}
+                        />
+                        // <li key={index}>{movie}
+                        // </li>
                     ))}
                 </ul>
             )}
