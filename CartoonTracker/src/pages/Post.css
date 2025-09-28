@@ -348,7 +348,6 @@
   align-self: flex-start;
 }
 
-/* Responsive Design for 4-column layout */
 @media (max-width: 1400px) {
   .show-item {
     flex: 0 1 calc(25% - 20px); /* Maintain 4 columns */
