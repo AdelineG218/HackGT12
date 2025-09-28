@@ -1,7 +1,9 @@
 import React from 'react'
 import './ProgressBar.css'
 
-// Old linear progress bar component, renamed to LinearProgressBar
+const ProgressBar = (props) => {
+    const percent = props.total_num_episodes > 0 ? props.num_episodes_watched/props.total_num_episodes : 0;
+
 export const LinearProgressBar = (props) => {
     const percent = props.total_num_episodes > 0 ? props.num_episodes_watched / props.total_num_episodes : 1;
     console.log(percent * 400);
