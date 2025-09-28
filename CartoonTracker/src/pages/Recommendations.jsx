@@ -12,7 +12,7 @@ const Recommendations = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        let prompt = "please give me five movies. If I provide some movies below, the first part is the name and the second part is the rating. If the rating is high, then recommend movies like that. If low, don't. If I do not provide shows, then just recommend whatever. Please provide five recommendations with a short description in five lines of output. Do not mention my input whatsoever. Do not repeat movies. Do not number the recommendations. Do not space with blank lines.";
+        let prompt = "Please give me five TV shows. If I provide some movies below, the first part is the name and number is the rating. If the rating is high, then recommend movies like that. If low, don't. If I do not provide shows, then just recommend whatever. Please provide five recommendations with a short description in five lines of output. Do not mention my input whatsoever. Do not repeat movies. Do not number the recommendations. Do not space with blank lines.";
 
         const fetchPosts = async () => {
             const data = await supabase
