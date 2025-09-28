@@ -1,33 +1,10 @@
-import snowflake from "snowflake-sdk"
 import axios from "axios"
 
 const promptSnowflake = async(prompt) => {
     const ACCOUNT_IDENTIFIER = "QZUSPNN-PENGDUCK"
-    const AUTH_TOKEN = "eyJraWQiOiI4NDM4NTkzOTQ2MSIsImFsZyI6IkVTMjU2In0.eyJwIjoiMzI5NjMyNTE2OjMyOTYzMjUxNiIsImlzcyI6IlNGOjEwNDkiLCJleHAiOjE3NjAyODkzMzh9.UyoVPxf1x4UKsQ3bMexO1sjv98hQv4MFv2-BMBtxwuZbu-tfoRXggiDVv5TCBTjVwueogz-0O82IZhLkPEJnkg"
+    const AUTH_TOKEN = "eyJraWQiOiI4NDM4NTkzOTQ2MSIsImFsZyI6IkVTMjU2In0.eyJwIjoiMzI5NjMyNTE2OjMyOTYzMjUyMCIsImlzcyI6IlNGOjEwNDkiLCJleHAiOjE3NjAzMjM4ODd9.B9JIPpZUpo4NpJavXupLEi0WbvKXWkzJiDO_5i5nj3hMBnfQtkCQKjviomUubYYBuWW9y6NLGNAhPYyvnI-H4A"
     const API_ENDPOINT = "https://QZUSPNN-PENGDUCK.snowflakecomputing.com/api/v2/cortex/inference:complete"
     const USERNAME = "PENGDUCK"
-
-    const connection = snowflake.createConnection({
-        account: ACCOUNT_IDENTIFIER,
-        username: USERNAME,
-        password: AUTH_TOKEN
-    })
-
-    // Try to connect to Snowflake, and check whether the connection was successful.
-    if (!connection) {
-        connection.connect(
-            (err, conn) => {
-                if (err) {
-                    console.error('Unable to connect: ' + err.message);
-                    }
-                else {
-                    console.log('Successfully connected to Snowflake.');
-                    // Optional: store the connection ID.
-                        connection_ID = conn.getId();
-                    }
-            }
-        );
-    }
 
     const payload = {
         model: 'claude-3-5-sonnet',
@@ -50,7 +27,7 @@ const promptSnowflake = async(prompt) => {
         }
         }
         
-        return result.join().replaceAll('"',"").replaceAll('\\',"").replaceAll(',','')
+        return result.join().replaceAll(",","").replaceAll('"',"")
     }
 
     const callCortexAPI = async() => {
@@ -84,12 +61,5 @@ const promptSnowflake = async(prompt) => {
 
     return await callCortexAPI(prompt);
 }
-
-const main = async() => {
-    let text = await promptSnowflake("hello!")
-    console.log(text)
-}
-
-main()
 
 export default promptSnowflake
