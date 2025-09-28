@@ -26,7 +26,7 @@ const Card = (props) =>  {
             ))}
           </div>: <p className="star-rating"> ☆☆☆☆☆☆☆☆☆☆</p>}
           {props.num_episodes_watched != 0 && props.total_num_episodes != 1 && <p className='watched'>Watched: {props.num_episodes_watched}/{props.total_num_episodes}</p>}
-          <ProgressBar num_episodes_watched={props.num_episodes_watched}
+          <LinearProgressBar num_episodes_watched={props.num_episodes_watched}
             total_num_episodes={props.total_num_episodes} />
       </div>
   );
