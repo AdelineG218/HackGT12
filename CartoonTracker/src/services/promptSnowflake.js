@@ -1,10 +1,8 @@
 import axios from "axios"
 
 const promptSnowflake = async(prompt) => {
-    const ACCOUNT_IDENTIFIER = "QZUSPNN-PENGDUCK"
-    const AUTH_TOKEN = "eyJraWQiOiI4NDM4NTkzOTQ2MSIsImFsZyI6IkVTMjU2In0.eyJwIjoiMzI5NjMyNTE2OjMyOTYzMjUyMCIsImlzcyI6IlNGOjEwNDkiLCJleHAiOjE3NjAzMjM4ODd9.B9JIPpZUpo4NpJavXupLEi0WbvKXWkzJiDO_5i5nj3hMBnfQtkCQKjviomUubYYBuWW9y6NLGNAhPYyvnI-H4A"
-    const API_ENDPOINT = "https://QZUSPNN-PENGDUCK.snowflakecomputing.com/api/v2/cortex/inference:complete"
-    const USERNAME = "PENGDUCK"
+    const AUTH_TOKEN = import.meta.env.VITE_AUTH_TOKEN
+    const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 
     const payload = {
         model: 'claude-3-5-sonnet',
