@@ -1,7 +1,4 @@
 import { useState, useEffect } from 'react'
-import Card from '../components/Card'
-import { supabase } from '../client'
-import { Link } from 'react-router-dom'
 import TVmazeUserService from '../services/TVmazeService'
 import './ReadPosts.css';
 
@@ -42,23 +39,7 @@ const ReadPosts = () => {
             }
         }
 
-        const fetchPosts = async () => {
-            try {
-                const { data } = await supabase
-                    .from('shows')
-                    .select()
-                    .order('created_at', { ascending: false })
-                
-                setShows(data | [])
-                
-            } catch (error) {
-                console.error('Error fetching posts:', error)
-            }
-        }
-
         fetchTVData()
-        fetchPosts()
-
     }, [])
 
     const renderShowItem = (show, index) => {
