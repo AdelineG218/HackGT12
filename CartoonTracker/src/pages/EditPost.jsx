@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './EditPost.css'
 import { supabase } from '../client'
+import React from 'react'
 
 const EditPost = () => {
 
