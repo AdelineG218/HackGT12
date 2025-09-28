@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react'
 import Card from '../components/Card'
 import { supabase } from '../client'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-import React from 'react'
 import './Home.css'
+import React from "react"
 
 const Home = () => {
 
     const [shows, setShows] = useState([])
-    const navigate = useNavigate()
+
     useEffect(() => {
         const fetchPosts = async () => {
             const {data} = await supabase
@@ -30,7 +29,7 @@ const Home = () => {
                     shows && shows.length > 0 ?
                     [...shows]
                     .map((show) => (
-                        <div key={show.id} className="card-container" onClick={() => navigate('show/' + show.id)}>
+                        <Link to={'show/' + show.id} key={show.id} style={{textDecoration: 'none'}}>
                             <Card 
                                 key={show.id}
                                 id={show.id} 
@@ -45,12 +44,12 @@ const Home = () => {
                                 genre={show.genre}
                                 review={show.review}
                                 linkTo={'show/' + show.id}
-                            /> 
-                        </div>
-                    )) : <h2>{'No Shows Yet 😞'}</h2>
+                            />
+                        </Link>)
+                    ) : <h2>{'No Shows Yet 😞'}</h2>
                 }
             </div>
-        </> 
+        </>
     )
 }
 
