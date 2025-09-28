@@ -3,7 +3,7 @@ import Card from '../components/Card'
 import { supabase } from '../client'
 import { Link } from 'react-router-dom'
 import './Home.css'
-import React from "react"
+import React from 'react'
 
 const Home = () => {
 
