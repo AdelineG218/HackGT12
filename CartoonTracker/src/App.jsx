@@ -36,7 +36,7 @@ const App = () => {
     {
       path: "/explore",
       element: <ReadPosts />
-    }
+    },
   ]);
   
 
