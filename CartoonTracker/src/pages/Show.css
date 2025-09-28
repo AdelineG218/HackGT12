@@ -1,0 +1,133 @@
+.show-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.back-button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.show-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.show-cover {
+    max-width: 300px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.show-info {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.review-section {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.review-display {
+    text-align: center;
+}
+
+.rating-display {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.star {
+    font-size: 1.5em;
+    margin: 0 2px;
+}
+
+.star.filled {
+    color: #ffd700;
+}
+
+.review-text {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    min-height: 100px;
+    text-align: left;
+}
+
+.edit-button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.review-edit textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    margin: 15px 0;
+}
+
+.rating-input {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.2s;
+}
+
+.star-btn.active {
+    color: #ffd700;
+}
+
+.review-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.save-button {
+    background: #48bb78;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background: #a0aec0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

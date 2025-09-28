@@ -71,7 +71,6 @@ const ReadPosts = () => {
         
         return (
             <div className="read-posts-container">
-                {/* TV Shows Section - THIS SHOULD BE ACTIVE */}
                 <div className="tv-shows-section">
                     <h2>TV Shows from TVmaze</h2>
                     
